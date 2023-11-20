@@ -8,10 +8,7 @@ Account::Account() {
 	monthlyDeposit = 0.0;
 	annualInterest = 0.0;
 	numYears = 0;
-}
-
-void Account::displayMenu() const{
-	cout << "Hello there world!" << endl;
+	tempYears = 0;
 }
 
 void Account::SetInvestmentAmount(double amount) {
@@ -26,6 +23,20 @@ void Account::SetAnnualInterest(double interest) {
 	annualInterest = interest;
 }
 
+void Account::SetNumberYears(int year) {
+	numYears = year;
+}
+
+void Account::CalculateInterest(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears) {
+	
+	while (tempYears != numYears) {
+		monthlyInterest = (investmentAmount + monthlyDeposit) * ((annualInterest / 100) / 12);
+		tempYears = 5;
+	}
+
+	cout << monthlyInterest << endl;
+}
+
 double Account::GetInvestmentAmount() const {
 	return investmentAmount;
 }
@@ -36,4 +47,8 @@ double Account::GetMonthlyDeposit() const {
 
 double Account::GetAnnualInterest() const {
 	return annualInterest;
+}
+
+int Account::GetNumberYears() const {
+	return numYears;
 }

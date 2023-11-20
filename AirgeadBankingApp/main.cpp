@@ -3,12 +3,39 @@
 
 #include <iostream>
 #include "Account.h"
+using namespace std;
 
 int main()
 {
     Account account1;
 
-    account1.displayMenu();
+    double userAmount;
+    double userMonthlyAmount;
+    double userInterest;
+    int userYear;
+
+    cout << "**********************************" << endl;
+    cout << "*********** Data Input ***********" << endl;
+    cout << "Initial Investment Amount:  ";
+    cin >> userAmount;
+    account1.SetInvestmentAmount(userAmount);
+
+    cout << "Monthly Deposit:  ";
+    cin >> userMonthlyAmount;
+    account1.SetMonthlyDeposit(userMonthlyAmount);
+
+    cout << "Annual Interest  ";
+    cin >> userInterest;
+    account1.SetAnnualInterest(userInterest);
+
+    cout << "Number of Years:  ";
+    cin >> userYear;
+    account1.SetNumberYears(userYear);
+
+    cout << "Press any key to continue..." << endl;
+
+    account1.CalculateInterest(userAmount, userMonthlyAmount, userInterest, userYear);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
