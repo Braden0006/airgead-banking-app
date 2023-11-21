@@ -1,15 +1,18 @@
 #pragma once
+#include <vector>
+#include <iostream>
+using namespace std;
+
 class Account {
 
 public:
 	Account();
-	void displayMenu() const;
 
 	void SetInvestmentAmount(double amount);
 	void SetMonthlyDeposit(double deposit);
 	void SetAnnualInterest(double interest);
 	void SetNumberYears(int year);
-	void CalculateInterest(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears);
+	void CalculateBalanceMonthly(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears);
 
 	double GetInvestmentAmount() const;
 	double GetMonthlyDeposit() const;
@@ -21,8 +24,15 @@ private:
 	double monthlyDeposit;
 	double annualInterest;
 	double monthlyInterest;
+	double yearlyInterestTotal;
 
 	int numYears;
 	int tempYears;
+	int tempMonth;
+
+	vector<double> yearlyInterest;
+	vector<double> yearlyInvestmentAmount;
+	vector<int> yearNumber;
+
 };
 

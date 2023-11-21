@@ -34,7 +34,7 @@ int main()
 
     cout << "Press any key to continue..." << endl;
 
-    account1.CalculateInterest(userAmount, userMonthlyAmount, userInterest, userYear);
+    account1.CalculateBalanceMonthly(userAmount, userMonthlyAmount, userInterest, userYear);
 
 }
 
