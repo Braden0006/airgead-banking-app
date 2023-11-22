@@ -12,7 +12,8 @@ public:
 	void SetMonthlyDeposit(double deposit);
 	void SetAnnualInterest(double interest);
 	void SetNumberYears(int year);
-	void CalculateBalanceMonthly(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears);
+	void CalculateBalance(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears);
+	void CalculateBalanceNoDeposit(double investmentAmount, double annualInterest, int numYears);
 
 	double GetInvestmentAmount() const;
 	double GetMonthlyDeposit() const;

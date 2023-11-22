@@ -34,8 +34,6 @@ int main()
 
     cout << "Press any key to continue..." << endl;
 
-    account1.CalculateBalanceMonthly(userAmount, userMonthlyAmount, userInterest, userYear);
-
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

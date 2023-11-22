@@ -27,7 +27,7 @@ void Account::SetNumberYears(int year) {
 	numYears = year;
 }
 
-void Account::CalculateBalanceMonthly(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears) {
+void Account::CalculateBalance(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears) {
 	
 	while (tempYears != numYears) {
 
@@ -50,6 +50,35 @@ void Account::CalculateBalanceMonthly(double investmentAmount, double monthlyDep
 			tempMonth = 0;
 			yearlyInterestTotal = 0;
 		}
+	}
+}
+
+void Account::CalculateBalanceNoDeposit(double investmentAmount, double annualInterest, int numYears) {
+
+	while (tempYears != numYears) {
+
+		monthlyInterest = (investmentAmount) * ((annualInterest / 100) / 12);
+
+		yearlyInterestTotal += monthlyInterest;
+		investmentAmount += monthlyInterest;
+		tempMonth += 1;
+
+		if (tempMonth == 12) {
+			yearlyInterest.push_back(yearlyInterestTotal);
+			yearlyInvestmentAmount.push_back(investmentAmount);
+
+			tempYears += 1;
+
+			yearNumber.push_back(tempYears);
+
+			monthlyInterest = 0;
+			tempMonth = 0;
+			yearlyInterestTotal = 0;
+		}
+	}
+
+	for (unsigned i = 0; i < yearlyInvestmentAmount.size(); ++i) {
+		cout << yearlyInvestmentAmount[i] << endl;
 	}
 }
 
