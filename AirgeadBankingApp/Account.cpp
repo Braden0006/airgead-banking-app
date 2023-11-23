@@ -4,27 +4,10 @@ using namespace std;
 
 // Default constructor
 Account::Account() {
-	investmentAmount = 0.0;
-	monthlyDeposit = 0.0;
-	annualInterest = 0.0;
-	numYears = 0;
 	tempYears = 0;
-}
-
-void Account::SetInvestmentAmount(double amount) {
-	investmentAmount = amount;
-}
-
-void Account::SetMonthlyDeposit(double deposit) {
-	monthlyDeposit = deposit;
-}
-
-void Account::SetAnnualInterest(double interest) {
-	annualInterest = interest;
-}
-
-void Account::SetNumberYears(int year) {
-	numYears = year;
+	tempMonth = 0;
+	monthlyInterest = 0;
+	yearlyInterestTotal = 0;
 }
 
 void Account::CalculateBalance(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears) {
@@ -39,13 +22,9 @@ void Account::CalculateBalance(double investmentAmount, double monthlyDeposit, d
 		tempMonth += 1;
 
 		if (tempMonth == 12) {
-			yearlyInterest.push_back(yearlyInterestTotal);
-			yearlyInvestmentAmount.push_back(investmentAmount);
+			tableNumbers.push_back({ investmentAmount, yearlyInterestTotal });
 
 			tempYears += 1;
-
-			yearNumber.push_back(tempYears);
-
 			monthlyInterest = 0;
 			tempMonth = 0;
 			yearlyInterestTotal = 0;
@@ -64,36 +43,30 @@ void Account::CalculateBalanceNoDeposit(double investmentAmount, double annualIn
 		tempMonth += 1;
 
 		if (tempMonth == 12) {
-			yearlyInterest.push_back(yearlyInterestTotal);
-			yearlyInvestmentAmount.push_back(investmentAmount);
+			tableNumbersNoDeposit.push_back({ investmentAmount, yearlyInterestTotal });
 
 			tempYears += 1;
-
-			yearNumber.push_back(tempYears);
-
 			monthlyInterest = 0;
 			tempMonth = 0;
 			yearlyInterestTotal = 0;
 		}
 	}
+}
 
-	for (unsigned i = 0; i < yearlyInvestmentAmount.size(); ++i) {
-		cout << yearlyInvestmentAmount[i] << endl;
+void Account::DisplayTable() const{
+	for (int i = 0; i < tableNumbers.size(); ++i) {
+		for (int j = 0; j < tableNumbers[i].size(); ++j) {
+			cout << tableNumbers[i][j] << "            ";
+		}
+		cout << endl;
 	}
 }
 
-double Account::GetInvestmentAmount() const {
-	return investmentAmount;
-}
-
-double Account::GetMonthlyDeposit() const {
-	return monthlyDeposit;
-}
-
-double Account::GetAnnualInterest() const {
-	return annualInterest;
-}
-
-int Account::GetNumberYears() const {
-	return numYears;
+void Account::DisplayTableNoDeposit() const {
+	for (int i = 0; i < tableNumbersNoDeposit.size(); ++i) {
+		for (int j = 0; j < tableNumbersNoDeposit[i].size(); ++j) {
+			cout << tableNumbersNoDeposit[i][j] << "            ";
+		}
+		cout << endl;
+	}
 }

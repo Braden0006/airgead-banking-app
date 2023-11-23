@@ -8,32 +8,23 @@ class Account {
 public:
 	Account();
 
-	void SetInvestmentAmount(double amount);
-	void SetMonthlyDeposit(double deposit);
-	void SetAnnualInterest(double interest);
-	void SetNumberYears(int year);
 	void CalculateBalance(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears);
 	void CalculateBalanceNoDeposit(double investmentAmount, double annualInterest, int numYears);
-
-	double GetInvestmentAmount() const;
-	double GetMonthlyDeposit() const;
-	double GetAnnualInterest() const;
-	int GetNumberYears() const;
+	void DisplayTable() const;
+	void DisplayTableNoDeposit() const;
 
 private:
-	double investmentAmount;
-	double monthlyDeposit;
-	double annualInterest;
 	double monthlyInterest;
 	double yearlyInterestTotal;
 
-	int numYears;
 	int tempYears;
 	int tempMonth;
 
 	vector<double> yearlyInterest;
 	vector<double> yearlyInvestmentAmount;
-	vector<int> yearNumber;
+
+	vector<vector<double>> tableNumbers;
+	vector<vector<double>> tableNumbersNoDeposit;
 
 };
 
