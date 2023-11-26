@@ -70,3 +70,21 @@ void Account::DisplayTableNoDeposit() const {
 		cout << endl;
 	}
 }
+
+void Account::UserInput(double userAmount, double userMonthlyDeposit, double userInterest, int userYear) {
+	cout << "**********************************" << endl;
+	cout << "*********** Data Input ***********" << endl;
+	cout << "Initial Investment Amount:  ";
+	cin >> userAmount;
+
+	cout << "Monthly Deposit:  ";
+	cin >> userMonthlyDeposit;
+
+	cout << "Annual Interest  ";
+	cin >> userInterest;
+
+	cout << "Number of Years:  ";
+	cin >> userYear;
+
+	cout << "Press any key to continue..." << endl;
+}
