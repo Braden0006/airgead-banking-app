@@ -8,6 +8,7 @@ class Account {
 public:
 	Account();
 
+	// Initialized all public member functions
 	void CalculateBalance(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears);
 	void CalculateBalanceNoDeposit(double investmentAmount, double annualInterest, int numYears);
 	void DisplayTable() const;
@@ -25,6 +26,8 @@ public:
 	int GetNumYears() const;
 
 private:
+
+	// Initialized all private variables
 	double monthlyInterest;
 	double yearlyInterestTotal;
 	double investmentAmount;
@@ -35,11 +38,8 @@ private:
 	int tempMonth;
 	int numYears;
 
-	vector<double> yearlyInterest;
-	vector<double> yearlyInvestmentAmount;
-
+	// Initialized vector variables store table calculations
 	vector<vector<double>> tableNumbers;
 	vector<vector<double>> tableNumbersNoDeposit;
-
 };
 

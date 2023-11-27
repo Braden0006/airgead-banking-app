@@ -6,7 +6,6 @@ using namespace std;
 
 int main()
 {
-    Account menu;
     Account account1;
 
     account1.UserInput();
