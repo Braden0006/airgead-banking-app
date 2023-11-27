@@ -12,7 +12,7 @@ public:
 	void CalculateBalanceNoDeposit(double investmentAmount, double annualInterest, int numYears);
 	void DisplayTable() const;
 	void DisplayTableNoDeposit() const;
-	void UserInput(double userAmount, double userMonthlyDeposit, double userInterest, int userYear);
+	void UserInput();
 
 	void SetInvestmentAmount(double investmentAmount);
 	void SetMonthlyDeposit(double monthlyDeposit);

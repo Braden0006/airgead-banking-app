@@ -6,36 +6,18 @@ using namespace std;
 
 int main()
 {
+    Account menu;
     Account account1;
-    Account account2;
 
-    double userAmount;
-    double userMonthlyAmount;
-    double userInterest;
-    int userYear;
+    account1.UserInput();
 
-    cout << "**********************************" << endl;
-    cout << "*********** Data Input ***********" << endl;
-    cout << "Initial Investment Amount:  ";
-    cin >> userAmount;
+    account1.CalculateBalanceNoDeposit(account1.GetInvestmentAmount(), account1.GetInterestRate(), account1.GetNumYears());
 
-    cout << "Monthly Deposit:  ";
-    cin >> userMonthlyAmount;
-
-    cout << "Annual Interest  ";
-    cin >> userInterest;
-
-    cout << "Number of Years:  ";
-    cin >> userYear;
-
-    cout << "Press any key to continue..." << endl;
-
-    account1.CalculateBalanceNoDeposit(userAmount, userInterest, userYear);
-    account2.CalculateBalance(userAmount, userMonthlyAmount, userInterest, userYear);
+    account1.CalculateBalance(account1.GetInvestmentAmount(), account1.GetMonthlyDeposit(), account1.GetInterestRate(), account1.GetNumYears());
 
     account1.DisplayTableNoDeposit();
     cout << endl;
     cout << endl;
-    account2.DisplayTable();
+    account1.DisplayTable();
 
 }

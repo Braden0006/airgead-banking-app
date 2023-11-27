@@ -4,13 +4,51 @@ using namespace std;
 
 // Default constructor
 Account::Account() {
+	investmentAmount = 0.0;
+	monthlyDeposit = 0.0;
+	interestRate = 0.0;
+	numYears = 0;
 	tempYears = 0;
 	tempMonth = 0;
 	monthlyInterest = 0;
 	yearlyInterestTotal = 0;
 }
 
+void Account::SetInvestmentAmount(double investmentAmount) {
+	this->investmentAmount = investmentAmount;
+}
+
+void Account::SetMonthlyDeposit(double monthlyDeposit) {
+	this->monthlyDeposit = monthlyDeposit;
+}
+
+void Account::SetInterestRate(double interestRate) {
+	this->interestRate = interestRate;
+}
+
+void Account::SetNumYears(int numYears) {
+	this->numYears = numYears;
+}
+
+double Account::GetInvestmentAmount() const {
+	return investmentAmount;
+}
+
+double Account::GetMonthlyDeposit() const {
+	return monthlyDeposit;
+}
+
+double Account::GetInterestRate() const {
+	return interestRate;
+}
+
+int Account::GetNumYears() const {
+	return numYears;
+}
+
 void Account::CalculateBalance(double investmentAmount, double monthlyDeposit, double annualInterest, int numYears) {
+	this->tempYears = 0;
+	this->tempMonth = 0;
 	
 	while (tempYears != numYears) {
 
@@ -22,7 +60,7 @@ void Account::CalculateBalance(double investmentAmount, double monthlyDeposit, d
 		tempMonth += 1;
 
 		if (tempMonth == 12) {
-			tableNumbers.push_back({ investmentAmount, yearlyInterestTotal });
+			this->tableNumbers.push_back({ investmentAmount, yearlyInterestTotal });
 
 			tempYears += 1;
 			monthlyInterest = 0;
@@ -71,52 +109,29 @@ void Account::DisplayTableNoDeposit() const {
 	}
 }
 
-void Account::UserInput(double userAmount, double userMonthlyDeposit, double userInterest, int userYear) {
+void Account::UserInput() {
+	double userAmount;
+	double userMonthlyDeposit;
+	double userInterest;
+	int userYear;
+
 	cout << "**********************************" << endl;
 	cout << "*********** Data Input ***********" << endl;
 	cout << "Initial Investment Amount:  ";
 	cin >> userAmount;
+	SetInvestmentAmount(userAmount);
 
 	cout << "Monthly Deposit:  ";
 	cin >> userMonthlyDeposit;
+	SetMonthlyDeposit(userMonthlyDeposit);
 
 	cout << "Annual Interest  ";
 	cin >> userInterest;
+	SetInterestRate(userInterest);
 
 	cout << "Number of Years:  ";
 	cin >> userYear;
+	SetNumYears(userYear);
 
 	cout << "Press any key to continue..." << endl;
-}
-
-void Account::SetInvestmentAmount(double investmentAmount) {
-	this->investmentAmount = investmentAmount;
-}
-
-void Account::SetMonthlyDeposit(double monthlyDeposit) {
-	this->monthlyDeposit = monthlyDeposit;
-}
-
-void Account::SetInterestRate(double interestRate) {
-	this->interestRate = interestRate;
-}
-
-void Account::SetNumYears(int numYears) {
-	this->numYears = numYears;
-}
-
-double Account::GetInvestmentAmount() const {
-	return investmentAmount;
-}
-
-double Account::GetMonthlyDeposit() const {
-	return monthlyDeposit;
-}
-
-double Account::GetInterestRate() const {
-	return interestRate;
-}
-
-int Account::GetNumYears() const {
-	return numYears;
 }
