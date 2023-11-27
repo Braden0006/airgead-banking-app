@@ -88,3 +88,35 @@ void Account::UserInput(double userAmount, double userMonthlyDeposit, double use
 
 	cout << "Press any key to continue..." << endl;
 }
+
+void Account::SetInvestmentAmount(double investmentAmount) {
+	this->investmentAmount = investmentAmount;
+}
+
+void Account::SetMonthlyDeposit(double monthlyDeposit) {
+	this->monthlyDeposit = monthlyDeposit;
+}
+
+void Account::SetInterestRate(double interestRate) {
+	this->interestRate = interestRate;
+}
+
+void Account::SetNumYears(int numYears) {
+	this->numYears = numYears;
+}
+
+double Account::GetInvestmentAmount() const {
+	return investmentAmount;
+}
+
+double Account::GetMonthlyDeposit() const {
+	return monthlyDeposit;
+}
+
+double Account::GetInterestRate() const {
+	return interestRate;
+}
+
+int Account::GetNumYears() const {
+	return numYears;
+}
